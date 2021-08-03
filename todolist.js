@@ -35,14 +35,18 @@ const appendList = () => {
 
 	let list = document.createElement("li");
 	list.className = "todo";
+	list.setAttribute("onMouseEnter", "showBtns()");
+	list.setAttribute("onMouseLeave", "hiddenBtns()");
 	list.innerHTML = `
 					<div class="cover">
 						<strong>${todoitem.title}</strong>
 						<p>${todoitem.content}</p>
 					</div>
 					<span class="priority">${todoitem.priority}</span>
-					<button class="doneBtn" onClick="finishList()">✔</button>
-					<button class="deleteBtn" onClick="deleteList()">✖</button>
+					<div class="btns hidden">
+						<button class="doneBtn" onClick="finishList()">✔</button>
+						<button class="deleteBtn" onClick="deleteList()">✖</button>
+					</div>
 	`;
 
 	todolist.append(list);
@@ -51,7 +55,7 @@ const appendList = () => {
 
 /* 완료한 리스트 처리 */
 finishList = () => {
-	let todo = event.target.parentElement;
+	let todo = event.target.parentElement.parentElement;
 	let cover;
 
 	for (let i = 0; i < todo.childNodes.length; i++) {
@@ -66,9 +70,46 @@ finishList = () => {
 	cover.classList.toggle("finished-cover");
 };
 
+/* todo에 mouseenter 시 버튼 보이기 */
+showBtns = () => {
+	let todo = event.target;
+	let buttons;
+	for (let i = 0; i < todo.childNodes.length; i++) {
+		if (todo.childNodes[i].nodeName === "#text") continue;
+		if (todo.childNodes[i].classList.contains("btns")) {
+			buttons = todo.childNodes[i].childNodes;
+
+			for (let j = 0; j < buttons.length; j++) {
+				if (buttons[j].nodeName !== "BUTTON") continue;
+				buttons[j].classList.remove("hidden");
+				buttons[j].classList.add("visible");
+			}
+			break;
+		}
+	}
+};
+/* todo에서 mouseleave 시 버튼 숨기기 */
+hiddenBtns = () => {
+	let todo = event.target;
+	let buttons;
+	for (let i = 0; i < todo.childNodes.length; i++) {
+		if (todo.childNodes[i].nodeName === "#text") continue;
+		if (todo.childNodes[i].classList.contains("btns")) {
+			buttons = todo.childNodes[i].childNodes;
+
+			for (let j = 0; j < buttons.length; j++) {
+				if (buttons[j].nodeName !== "BUTTON") continue;
+				buttons[j].classList.remove("visible");
+				buttons[j].classList.add("hidden");
+			}
+			break;
+		}
+	}
+};
+
 /* todo 삭제 */
 deleteList = () => {
-	event.target.parentElement.remove();
+	event.target.parentElement.parentElement.remove();
 	return false;
 };
 

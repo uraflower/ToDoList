@@ -28,16 +28,18 @@
 		</div>
 		<div class="container">
 			<ul id="todolist">
-				<li class="todo">
+				<li class="todo" onMouseEnter="showBtns()" onMouseLeave="hiddenBtns()">
 					<div class="cover">
 						<strong>She</strong>
 						<p>무지개가 떨어진 곳을 알아, 내일은 꼭 함께 가자는 그녀</p>
 					</div>
 					<span class="priority">&#9733;&#9733;&#9733;</span>
-					<button class="doneBtn" onClick="finishList()">✔</button>
-					<button class="deleteBtn" onClick="deleteList()">✖</button>
+					<div class="btns hidden">
+						<button class="doneBtn" onClick="finishList()">✔</button>
+						<button class="deleteBtn" onClick="deleteList()">✖</button>
+					</div>
 				</li>
-				<li class="todo">
+				<li class="todo" onMouseEnter="showBtns()" onMouseLeave="hiddenBtns()">
 					<div class="cover">
 						<strong>Another Day of Sun</strong>
 						<p>
@@ -45,11 +47,13 @@
 							morning rolls around. And it's another day of sun.
 						</p>
 					</div>
-					<span class="priority">&#9733;&#9733;&#9733;</span>
-					<button class="doneBtn" onClick="finishList()">✔</button>
-					<button class="deleteBtn" onClick="deleteList()">✖</button>
+					<span class="priority">&#9733;</span>
+					<div class="btns hidden">
+						<button class="doneBtn" onClick="finishList()">✔</button>
+						<button class="deleteBtn" onClick="deleteList()">✖</button>
+					</div>
 				</li>
-				<li class="todo">
+				<li class="todo" onMouseEnter="showBtns()" onMouseLeave="hiddenBtns()">
 					<div class="cover">
 						<strong>조이풀 조이풀</strong>
 						<p>
@@ -58,8 +62,10 @@
 						</p>
 					</div>
 					<span class="priority"></span>
-					<button class="doneBtn" onClick="finishList()">✔</button>
-					<button class="deleteBtn" onClick="deleteList()">✖</button>
+					<div class="btns hidden">
+						<button class="doneBtn" onClick="finishList()">✔</button>
+						<button class="deleteBtn" onClick="deleteList()">✖</button>
+					</div>
 				</li>
 			</ul>
 		</div>

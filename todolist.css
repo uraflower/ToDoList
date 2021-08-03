@@ -150,19 +150,23 @@ button {
 	font-size: 35px;
 	line-height: 35px;
 }
-.todo > button {
+.todo .btns {
 	position: absolute;
 	bottom: 10px;
+	right: 12px;
+}
+.todo .btns button {
 	width: 26px;
 	height: 26px;
 	font-size: 18px;
 	line-height: 25px;
 }
-.todo .doneBtn {
-	right: 42px;
+
+.hidden {
+	visibility: hidden;
 }
-.todo .deleteBtn {
-	right: 12px;
+.visible {
+	visibility: visible;
 }
 
 .finished-todo {
