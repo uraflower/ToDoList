@@ -114,7 +114,13 @@ deleteList = () => {
 };
 
 /* todo 전체 삭제 */
-
+clearList = () => {
+	let todo = todolist.childNodes;
+	for (let i = 0; i < todo.length; i++) {
+		if (todo[i].nodeName === "#text") continue;
+		todo[i].remove();
+	}
+};
 /* todo 수정하기 */
 
 /* 중요도 순으로 입력할 수 있는 창 또는 라디오 버튼을 넣어서 중요도 지정 가능하게 */
@@ -140,22 +146,4 @@ clearStarRating = () => {
 	stars.forEach((star) => {
 		if (star.checked) star.removeAttribute("checked");
 	});
-};
-
-/* 날짜와 시간 표시하기 */
-getTime = () => {
-	let date = new Date();
-	let time =
-		date.getFullYear() +
-		"-" +
-		(date.getMonth() + 1) +
-		"-" +
-		date.getDate() +
-		" " +
-		date.getHours() +
-		":" +
-		date.getMinutes() +
-		":" +
-		date.getSeconds();
-	return time;
 };
