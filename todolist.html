@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Day4 ToDoList Practice</title>
+		<link rel="stylesheet" href="todolist.css" />
+	</head>
+	<body>
+		<div class="header">
+			<b class="headerTitle">To Do List</b>
+			<div id="input">
+				<input id="inputTitle" type="text" placeholder="title" />
+				<input id="inputContent" type="text" placeholder="content" />
+				<div id="starRating">
+					<input type="radio" value="3" />
+					<label class="star">&#9733;</label>
+					<input type="radio" value="2" />
+					<label class="star">&#9733;</label>
+					<input type="radio" value="1" />
+					<label class="star">&#9733;</label>
+				</div>
+			</div>
+			<button class="addBtn" onClick="appendList()">
+				<strong>+</strong>
+			</button>
+		</div>
+		<div class="container">
+			<ul id="todolist">
+				<li class="todo">
+					<div class="cover">
+						<strong>title</strong>
+						<p>
+							This is content. This is content. This is content. This is
+							content.
+						</p>
+					</div>
+					<span class="priority">&#9733;&#9733;&#9733;</span>
+					<button class="doneBtn" onClick="finishList()">✔</button>
+					<button class="deleteBtn" onClick="deleteList()">✖</button>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="./todolist.js"></script>
+	</body>
+</html>
