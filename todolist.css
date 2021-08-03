@@ -3,6 +3,7 @@
 
 html,
 body {
+	user-select: none;
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -21,11 +22,13 @@ body {
 
 .header,
 .container {
-	padding: 12px;
+	padding-left: 12px;
+	padding-right: 12px;
 	width: 480px;
 }
 
 .header {
+	padding: 12px;
 	background-color: #d4ffea66;
 	border-top-left-radius: 50px;
 	border-top-right-radius: 50px;
@@ -107,30 +110,30 @@ body {
 	position: relative;
 	margin-bottom: 8px;
 	padding: 10px 30px;
-	/*width: 100%;*/
-	background-color: rgb(47, 54, 68);
-	color: rgb(255, 187, 0);
-	border: solid 1px rgb(47, 54, 68);
+	background-color: rgb(204 255 235 / 77%);
+	color: rgb(18 88 79);
 	border-radius: 30px;
 }
 .todo:hover {
-	transition: all ease 1s 0s;
+	transition: all cubic-bezier(0.18, 0.89, 0.32, 1.28) 1s 0s;
 	color: #ff0329;
 }
 .todo .cover {
 	text-align: left;
+	word-break: break-all;
 }
-.todo > strong {
+.todo .cover strong {
 	font-size: 18px;
 }
-.todo > p {
-	margin: 0px;
+.todo .cover p {
+	margin: 4px 0px;
 }
 .todo .priority {
 	position: absolute;
-	top: 3px;
+	top: 10px;
 	right: 12px;
 	display: inline-block;
+	color: rgb(255, 187, 0);
 }
 
 button {
@@ -149,7 +152,7 @@ button {
 }
 .todo > button {
 	position: absolute;
-	bottom: 8px;
+	bottom: 10px;
 	width: 26px;
 	height: 26px;
 	font-size: 18px;
@@ -163,7 +166,7 @@ button {
 }
 
 .finished-todo {
-	opacity: 0.6;
+	opacity: 0.4;
 }
 .finished-cover {
 	text-decoration: line-through;
