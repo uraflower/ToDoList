@@ -115,11 +115,7 @@ deleteList = () => {
 
 /* todo 전체 삭제 */
 clearList = () => {
-	let todo = todolist.childNodes;
-	for (let i = 0; i < todo.length; i++) {
-		if (todo[i].nodeName === "#text") continue;
-		todo[i].remove();
-	}
+	while (todolist.hasChildNodes()) todolist.removeChild(todolist.childNodes[0]);
 };
 /* todo 수정하기 */
 
