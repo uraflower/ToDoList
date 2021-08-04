@@ -1,8 +1,6 @@
-/* TO DO todo */
-/*
- * 할 일을 추가하고, 수정하고, 삭제하는 기능
- * 할 일마다 색을 다르게 할 수 있는 기능
- */
+/********************************************/
+/***************** TODOLIST *****************/
+/********************************************/
 
 const STARCODE = "&#9733;";
 const todolist = document.getElementById("todolist");
@@ -10,7 +8,6 @@ let starRating = document.getElementById("starRating");
 let stars = starRating.childNodes;
 
 function Todo(title, content, priority) {
-	//this.id = getTime();
 	this.title = title;
 	this.content = content;
 	this.priority = priority;
@@ -27,7 +24,7 @@ const appendList = () => {
 		}
 	});
 
-	if (!title || !content) {
+	if (!title && !content) {
 		alert("할 일의 제목과 내용을 입력해주세요");
 		return false;
 	}
@@ -117,9 +114,8 @@ deleteList = () => {
 clearList = () => {
 	while (todolist.hasChildNodes()) todolist.removeChild(todolist.childNodes[0]);
 };
-/* todo 수정하기 */
 
-/* 중요도 순으로 입력할 수 있는 창 또는 라디오 버튼을 넣어서 중요도 지정 가능하게 */
+/* 중요도 지정 */
 starRating.addEventListener("click", function (e) {
 	clearStarRating();
 	e.target.previousElementSibling.setAttribute("checked", "true"); //e.target : label
